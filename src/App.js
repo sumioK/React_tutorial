@@ -2,7 +2,7 @@ import { useState, useRef} from "react";
 import TodoList from "./TodoList"
 import {v4 as uuidv4 } from 'uuid'
 function App() {
-  const [todos, setTodos] = useState([{id: 1, name: "Todo1", compoeted: false},]);
+  const [todos, setTodos] = useState([{id: 1, name: "Todo1", completed: false},]);
 
   const todoNameRef = useRef();
 
@@ -16,8 +16,9 @@ function App() {
 
   const toggleTodo = (id) =>{
     const newTodos = [...todos];
-    const todo = newTodos.find((todo) => todo.id == id)
+    const todo = newTodos.find((todo) => todo.id == id);
     todo.completed = !todo.completed;
+    setTodos(newTodos);
   }
 
   return( 
